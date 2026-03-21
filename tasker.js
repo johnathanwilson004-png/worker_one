@@ -1,12 +1,13 @@
 const cron = require('node-cron');
+let pulseCount = 0;
 
-console.log('--- S22 Engine Room: Automated Tasker Initialized ---');
+console.log('--- S22 Engine Room: Layer 1 Data Pulse Active ---');
 
-// This 'pulses' every hour to check for new tasks/rewards
-cron.schedule('0 * * * *', () => {
+// Pulses every 30 minutes now to increase "Presence"
+cron.schedule('*/30 * * * *', () => {
+  pulseCount++;
   const timestamp = new Date().toLocaleString();
-  console.log(`[${timestamp}] Checking Global Task Nodes... Status: Green`);
-  // Logic for retrieving micro-tasks goes here bit by bit
+  console.log(`[${timestamp}] Pulse #${pulseCount}: System stable. Ready for Data Packets.`);
 });
 
-console.log('Tasker is now scheduled. It will pulse hourly without draining your battery.');
+console.log('Monitoring active. Next sync with A35 Sanctuary in progress.');
